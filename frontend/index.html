@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume & ATS Matcher</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <div class="app-container">
+        <header class="header">
+            <h1><i class="fa-solid fa-wand-magic-sparkles highlight"></i> ATS Smart Matcher</h1>
+            <p>Upload your resume PDF or paste text to evaluate your ATS match score against any Job Description.</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Input Form -->
+            <div class="glass-card">
+                <h2><i class="fa-solid fa-file-invoice"></i> Resume Input</h2>
+                
+                <div class="file-upload-box" id="drop-zone">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <p id="file-name">Click or drag PDF resume here</p>
+                    <input type="file" id="resume-file" accept=".pdf" hidden>
+                </div>
+
+                <div class="divider"><span>OR PASTE TEXT</span></div>
+
+                <textarea id="resume-text" placeholder="Paste resume text here..." rows="5"></textarea>
+
+                <h2><i class="fa-solid fa-briefcase"></i> Target Job Description</h2>
+                <textarea id="jd-text" placeholder="Paste the job description here..." rows="5" required></textarea>
+
+                <button class="btn-glow" id="analyze-btn" onclick="processAnalysis()">
+                    <i class="fa-solid fa-bolt"></i> Run AI Analysis
+                </button>
+            </div>
+
+            <!-- Right Output Dashboard -->
+            <div class="glass-card results-card">
+                <h2><i class="fa-solid fa-chart-pie"></i> Match Results</h2>
+                
+                <div class="score-container">
+                    <div class="score-circle" id="score-circle">--%</div>
+                    <p class="score-label" id="score-status">Ready to Analyze</p>
+                </div>
+
+                <div class="skills-section">
+                    <h3><i class="fa-solid fa-circle-check text-success"></i> Matched Keywords</h3>
+                    <div class="tags-wrapper" id="matched-tags">
+                        <span class="placeholder-text">Matched skills will appear here...</span>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3><i class="fa-solid fa-circle-xmark text-danger"></i> Missing Keywords</h3>
+                    <div class="tags-wrapper" id="missing-tags">
+                        <span class="placeholder-text">Missing skills will appear here...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

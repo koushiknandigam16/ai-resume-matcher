@@ -35,7 +35,7 @@ async function processAnalysis() {
 
     try {
         // Local FastAPI server URL
-        const response = await fetch('http://127.0.0.1:8000/analyze', {
+        const response = await fetch('https://ai-resume-matcher-backend-znki.onrender.com/analyze', {
             method: 'POST',
             body: formData
         });
